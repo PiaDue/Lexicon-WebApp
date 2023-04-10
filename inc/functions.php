@@ -37,9 +37,13 @@ function received_post_req():bool {
     return  $_SERVER['REQUEST_METHOD'] === 'POST' ;
 }
 
+function received_get_req():bool {
+    return  $_SERVER['REQUEST_METHOD'] === 'GET' ;
+}
+
 function sanitize_string(string $value){
     $temp = trim($value);
-    $temp = filter_var($temp, FILTER_SANITIZE_STRING);
+    $temp = filter_var($temp, FILTER_UNSAFE_RAW);
 
     if($temp === false){
         return '';

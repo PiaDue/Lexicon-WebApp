@@ -25,7 +25,13 @@ function get_lexicon_data()
     return json_decode($json);
 }
 
-function get_term_data($term)
+/**
+ * returns a certains term as an object
+ * - properties: term, definition
+ * @param string $term
+ * @return object|false
+ */
+function get_term_data(string $term)
 {
     $lexicon_terms = get_lexicon_data();
     foreach ($lexicon_terms as $item) {
@@ -68,3 +74,14 @@ function add_term(string $term, string $def){
     set_lexicon_data($items);
 }
 
+function update_term(string $orig_term, string $new_term, string $def){
+    $lexicon_terms = get_lexicon_data();
+    foreach ($lexicon_terms as $item) {
+        if ($item->term == $orig_term) {
+            $item->term = $new_term;
+            $item->definition = $def;
+            break;
+        }
+    }
+    set_lexicon_data($lexicon_terms);
+}

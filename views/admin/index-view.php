@@ -12,7 +12,7 @@
         <input type="text" name="search" id="search">
         <input type="submit" value="search">
     </form>
-    <a href="create.php">+ add term</a>
+    
     <table>
         <thead>
             <th>Term</th>
@@ -20,14 +20,17 @@
         </thead>
         <?php foreach ($model['data'] as $item) : ?>
             <tr>
-                <td><a href="detail.php?term=<?= $item->term ?>">
+                <td><a href="detail.php?term=<?=$item->term?>">
                         <?= $item->term ?>
                     </a></td>
                 <td><?= $item->definition ?></td>
+                <td><a href="edit.php?key=<?=$item->term?>">Edit</a></td>
             </tr>
         <?php endforeach; ?>
 
     </table>
+
+    <a href="create.php">+ add term</a>
 
 </body>
 
