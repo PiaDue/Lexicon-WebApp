@@ -6,4 +6,5 @@ Project was part of a php course
 - search function
 - detail page for each term
 - admin page
-  - create new terms
+  - create new term-entry
+  - edit term-entry
