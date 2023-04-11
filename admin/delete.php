@@ -14,7 +14,7 @@ if(received_get_req()){
         die();
     }
 
-    $term = get_term_data($key);
+    $term = Data::get_term_data($key);
 
     if ($term==false){
         view('not_found-view');
@@ -32,7 +32,7 @@ if (received_post_req()) {
     $term = sanitize_string($_POST['term']);
     
     if(!empty($term)){
-        delete_term($term);
+        Data::delete_term($term);
     }
     redirect('index.php');
 }

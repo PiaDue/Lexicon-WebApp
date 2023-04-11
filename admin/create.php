@@ -15,7 +15,7 @@ if (received_post_req()) {
     if(empty($term) || empty($def)){
         echo 'Creation of new term failed!';
     } else{
-        add_term($term, $def);
+        Data::add_term($term, $def);
         redirect('index.php');
     }
 }

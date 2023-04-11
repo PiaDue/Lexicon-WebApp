@@ -14,7 +14,7 @@ if(received_get_req()){
         die();
     }
 
-    $term = get_term_data($key);
+    $term = Data::get_term_data($key);
 
     if ($term==false){
         view('not_found-view');
@@ -36,7 +36,7 @@ if (received_post_req()) {
     if(empty($term) || empty($def) || empty($orig_term)){
         echo 'Update of term failed!';
     } else{
-        update_term($orig_term, $term, $def);
+        Data::update_term($orig_term, $term, $def);
         redirect('index.php');
     }
 }

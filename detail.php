@@ -7,7 +7,7 @@ if (!isset($_GET['term'])) {
 }
 
 $url_term = filter_input(INPUT_GET, 'term');
-$term = get_term_data($url_term);
+$term = Data::get_term_data($url_term);
 
 if ($term == false) {
     view('not_found-view');

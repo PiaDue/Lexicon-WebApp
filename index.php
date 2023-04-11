@@ -2,13 +2,13 @@
 require('./inc/app.php');
 
 $model = [];
-$model['title'] = 'Lexikon';
+$model['title'] = 'Lexicon';
 
 if (isset($_GET['search']) && $_GET['search'] != '') {
-    $data = seach_term($_GET['search']); 
+    $data = Data::seach_term($_GET['search']); 
     $model['title'] = 'Seach Results for: ' . $_GET['search'];
 } else {
-    $data = get_lexicon_data();
+    $data = Data::get_lexicon_data();
 }
 
 $model['data'] = $data;
