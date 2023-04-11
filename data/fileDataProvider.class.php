@@ -23,9 +23,9 @@ class FileDataProvider extends DataProvider{
      * returns full lexicon as a php array of object
      * @return mixed
      */
-    public function get_lexicon_data()
-    {
+    public function get_lexicon_data():array{
         $json = $this->get_data();
+        if($json==''){return [];}
         return json_decode($json);
     }
     
@@ -69,7 +69,7 @@ class FileDataProvider extends DataProvider{
 
     public function add_term(string $term, string $def){
         $items = $this->get_lexicon_data();
-        $items[] = new LexiconTerm($term, $def);
+        $items[] = new LexiconTerm(null, $term, $def);
         $this->set_lexicon_data($items);
     }
 

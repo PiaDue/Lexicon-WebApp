@@ -1,10 +1,6 @@
 <?php
 class LexiconTerm {
+  public $id;
   public $term;
   public $definition;
-
-  function __construct($term, $def) {
-    $this->term = $term; 
-    $this->definition = $def; 
-  }
 }

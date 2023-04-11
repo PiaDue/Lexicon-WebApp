@@ -9,18 +9,8 @@ abstract class DataProvider{
         $this->source = $source;
     }
 
-    /**
-     * returns full lexicon as a php array of object
-     * @return mixed
-     */
-    abstract public function get_lexicon_data();
+    abstract public function get_lexicon_data():array;
 
-    /**
-     * returns a certains term as an object
-     * - properties: term, definition
-     * @param string $term
-     * @return object|false
-     */
     abstract public function get_term_data(string $term);
 
     abstract public function seach_term($search);
