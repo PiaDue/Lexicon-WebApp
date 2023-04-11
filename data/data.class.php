@@ -1,7 +1,8 @@
 <?php 
+require_once('dataProvider.class.php');
 class Data{
     static private $data_store;
-    static public function initialize($data_provider){
+    static public function initialize(DataProvider $data_provider){
         return self::$data_store = $data_provider;
     }
 
@@ -32,6 +33,4 @@ class Data{
     static public function delete_term(string $term){
         return self::$data_store->delete_term($term);
     }
-
-
 }

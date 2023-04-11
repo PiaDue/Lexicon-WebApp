@@ -1,13 +1,7 @@
 <?php
-require('lexiconTerm.class.php');
+require_once('dataProvider.class.php');
 
-class FileDataProvider{
-
-    public $file_path;
-
-    function __construct($path){
-        $this->file_path = $path;
-    }
+class FileDataProvider extends DataProvider{
 
     /**
      * returns full lexicon as a string of json
@@ -15,7 +9,7 @@ class FileDataProvider{
      */
     private function get_data()
     {
-        $fname = $this->file_path;
+        $fname = $this->source;
         $json = '';
         if (!file_exists($fname)) {
             file_put_contents($fname, '');
@@ -36,7 +30,7 @@ class FileDataProvider{
     }
     
     public function set_lexicon_data($items){
-        $fname = $this->file_path;
+        $fname = $this->source;
         $json = json_encode($items);
         file_put_contents($fname, $json);
     }
