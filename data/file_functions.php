@@ -85,3 +85,17 @@ function update_term(string $orig_term, string $new_term, string $def){
     }
     set_lexicon_data($lexicon_terms);
 }
+
+function delete_term(string $term){
+    $lexicon_terms = get_lexicon_data();
+    for($i=0; $i<count($lexicon_terms); $i++){
+        if($lexicon_terms[$i]->term == $term){
+            unset($lexicon_terms[$i]);
+            break;  
+        }
+    }
+
+    $new_arr = array_values($lexicon_terms); 
+
+    set_lexicon_data($new_arr);
+}

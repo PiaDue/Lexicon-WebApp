@@ -8,3 +8,4 @@ Project was part of a php course
 - admin page
   - create new term-entry
   - edit term-entry
+  - delte term-entry
