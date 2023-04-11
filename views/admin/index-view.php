@@ -6,6 +6,8 @@
 </head>
 
 <body>
+    <a href="../../logout.php">Logout</a>
+    User: <?=$model['username']?>
     <h1><?= $model['title'] ?></h1>
 
     <form action="" method="GET">

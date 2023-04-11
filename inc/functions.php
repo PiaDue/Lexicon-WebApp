@@ -8,14 +8,21 @@ function redirect($path)
     header("Location: $path");
 }
 
-function autenticate_user($username, $password)
+/**
+ * returns whether or not the user username and password are correct for an existing user
+ * @param string $username
+ * @param string $password
+ * @return bool
+ */
+function autenticate_user(string $username, string $password)
 {
-    foreach (CONFIG['users'] as $user) {
-        if (array_key_exists($username, $user)) {
-            return $user[$username] == $password;
-        }
+    $users = CONFIG['users'];
+    if(!isset($users[$username])){
         return false;
     }
+
+    $user_password=$users[$username];
+    return $user_password==$password;
 }
 
 function user_is_loged_in()

@@ -6,6 +6,7 @@
 </head>
 
 <body>
+    <a href="login.php">Login</a>
     <h1><?= $model['title'] ?></h1>
 
     <form action="" method="GET">

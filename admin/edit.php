@@ -1,5 +1,7 @@
 <?php
 require('../inc/app.php');
+session_start();
+if(!user_is_loged_in()){redirect('../login.php');}
 
 $model = [];
 $model['title'] = 'Edit Term';
