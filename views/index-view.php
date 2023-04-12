@@ -3,10 +3,12 @@
 
 <head>
     <meta charset="UTF-8">
+    <title>lexicon</title>
+    <link rel="stylesheet" href="./views//style/style.css">
 </head>
 
 <body>
-    <a href="login.php">Login</a>
+    <a href="login.php" class="admin-button">Login</a>
     <h1><?= $model['title'] ?></h1>
 
     <form action="" method="GET">

@@ -23,7 +23,7 @@ if(received_get_req()){
 
     $model['id'] = $term->id;
     $model['term'] = $term->term;
-    $model['definition'] = $term->definition;
+    $model['definition'] = trim($term->definition);
 
     view('admin/edit-view', $model);
 }

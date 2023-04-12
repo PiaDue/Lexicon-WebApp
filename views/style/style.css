@@ -1,0 +1,144 @@
+:root {
+    /*border: 1px black solid;*/
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+}
+
+body {
+    margin: 0 5vw 0 5vw;
+    margin-top: 5vh;
+}
+
+
+/* text */
+
+h1 {
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    color: rgb(0, 94, 255);
+    text-decoration: underline;
+}
+
+
+/* tables */
+
+table {
+    min-width: 100%;
+    text-align: left;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 10px;
+}
+
+td {
+    border-top: 1px solid black;
+}
+
+th {
+    background-color: rgba(0, 94, 255, 0.3);
+}
+
+
+/*forms*/
+
+form {
+    width: fit-content;
+    margin-bottom: 20px;
+}
+
+form label {
+    display: block;
+}
+
+input {
+    margin-bottom: 20px;
+    padding: 2px 5px;
+}
+
+input[type=text],
+input[type=password] {
+    font-size: 12px;
+    padding: 5px 5px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+textarea {
+    width: 20vw;
+    height: 10vh;
+    margin-bottom: 20px;
+    padding: 5px 5px;
+    font-size: 12px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+input[type=submit] {
+    font-size: 12px;
+    background-color: rgba(0, 94, 255, 0.8);
+    color: white;
+    padding: 5px 5px;
+    margin: 0 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: rgb(0, 94, 255);
+}
+
+/* login form special*/
+
+form.login-form {
+    margin: auto;
+    margin-top: 10vh;
+    width: fit-content;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+
+form.login-form label {
+    display: block;
+}
+
+form.login-form input {
+    margin-bottom: 10px;
+}
+
+
+/* admin specials */
+
+a.admin-button {
+    background-color: rgba(0, 94, 255, 0.8);
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    padding: 5px 5px;
+    margin: 0 10px 0 0;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+a.admin-button:hover {
+    background-color: rgba(0, 94, 255, 1);
+}
