@@ -11,22 +11,49 @@ class MysqlDataProvider extends DataProvider{
         }
     }
 
-    /**
-     * returns full lexicon as a php array of object
-     * @return array of LexiconTerm obj
-     */
-    public function get_lexicon_data():array{
+    private function query(string $sql, $sql_parms = []):array{
         $db= $this->connect();
         if(is_null($db)){return [];}
+        $query = null;
 
-        $sql = "SELECT * FROM terms";
-        $query = $db->query($sql);
+        if(empty($sql_parms)){
+            $query = $db->query($sql);
+        }else{
+            $query = $db->prepare($sql);
+            $query->execute($sql_parms);
+        }
+       
         $data = $query->fetchAll(PDO::FETCH_CLASS, 'LexiconTerm');
 
         $query = null;
         $db = null;
 
         return $data;
+    }
+
+    private function execute(string $sql, $sql_params = []){
+        $db= $this->connect();
+        if(is_null($db)){return false;}
+
+        $stmt = $db->prepare($sql);
+        $stmt->execute($sql_params); 
+        $stmt = null;
+        $db = null;
+    }
+
+    /**
+     * returns full lexicon as a php array of object
+     * @return array of LexiconTerm obj
+     */
+    public function get_lexicon_data():array{
+        return $this->query('SELECT * FROM terms');
+    }
+
+    public function seach_term($search){
+        return $this->query(
+            "SELECT * FROM terms WHERE term LIKE :search OR definition LIKE :search",
+            [':search'=>'%'.$search.'%']
+        );
     }
 
     /**
@@ -51,52 +78,33 @@ class MysqlDataProvider extends DataProvider{
         return $data[0];
     }
 
-    public function seach_term($search){
-         
-    }
-
     public function add_term(string $term, string $def){
-        $db= $this->connect();
-        if(is_null($db)){return false;}
-
-        $sql = "INSERT INTO terms (term, definition) VALUES (:term, :definition);";
-        $stmt = $db->prepare($sql);
-        $stmt->execute([
+        return $this->execute(
+            'INSERT INTO terms (term, definition) VALUES (:term, :definition)',
+            [
             ':term' => $term,
             ':definition' => $def
-        ]);
-        $stmt = null;
-        $db = null;
-        return true;
+            ]
+        );
     }
 
     public function update_term(string $orig_term, string $new_term, string $def){
-        $db= $this->connect();
-        if(is_null($db)){return false;}
-
-        $sql = "UPDATE terms SET term = :term, definition = :definition WHERE id = :id";
-        $stmt = $db->prepare($sql);
-        $stmt->execute([
+        return $this->execute(
+            'UPDATE terms SET term = :term, definition = :definition WHERE id = :id',
+            [
             ':term' => $new_term,
             ':definition' => $def,
             ':id' => $orig_term
-        ]);
-        $stmt = null;
-        $db = null;
-        return true;
+            ]
+        );
     }
 
     public function delete_term($term){
-        $db= $this->connect();
-        if(is_null($db)){return false;}
-
-        $sql = "DELETE FROM terms WHERE id = :id";
-        $stmt = $db->prepare($sql);
-        $stmt->execute([
+        return $this->execute(
+            'DELETE FROM terms WHERE id = :id',
+            [
             ':id' => $term
-        ]);
-        $stmt = null;
-        $db = null;
-        return true;
+            ]
+        );
     }
 }
