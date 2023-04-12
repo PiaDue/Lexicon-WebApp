@@ -9,7 +9,7 @@
     <h1><?= $model['title'] ?></h1>
 
     <form action="" method="POST">
-        <input type="hidden" name="orig-term" value="<?=$model['term']?>">
+        <input type="hidden" name="orig-term" value="<?=$model['id']?>">
         <div class="form-group">
             <label for="term">Term:</label>
             <input type="text" name="term" id="term" value="<?=$model['term']?>">

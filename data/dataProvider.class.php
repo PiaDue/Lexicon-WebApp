@@ -11,7 +11,7 @@ abstract class DataProvider{
 
     abstract public function get_lexicon_data():array;
 
-    abstract public function get_term_data(string $term);
+    abstract public function get_term_data($term);
 
     abstract public function seach_term($search);
 
@@ -19,5 +19,5 @@ abstract class DataProvider{
 
     abstract public function update_term(string $orig_term, string $new_term, string $def);
 
-    abstract public function delete_term(string $term);
+    abstract public function delete_term($term);
 }

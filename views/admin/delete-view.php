@@ -15,7 +15,7 @@
     </p>
 
     <form action="" method="POST">
-        <input type="hidden" name="term" value="<?=$model['term']?>">
+        <input type="hidden" name="term" value="<?=$model['id']?>">
         <input type="submit" value="delete">
     </form>
     <a href="index.php">Cancel</a>

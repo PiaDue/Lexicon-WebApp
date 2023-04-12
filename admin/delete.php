@@ -21,6 +21,7 @@ if(received_get_req()){
         die();
     }
 
+    $model['id'] = $term->id;
     $model['term'] = $term->term;
     $model['definition'] = $term->definition;
 

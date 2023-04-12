@@ -42,7 +42,7 @@ class FileDataProvider extends DataProvider{
      * @param string $term
      * @return object|false
      */
-    public function get_term_data(string $term)
+    public function get_term_data($term)
     {
         $lexicon_terms = $this->get_lexicon_data();
         foreach ($lexicon_terms as $item) {
@@ -85,7 +85,7 @@ class FileDataProvider extends DataProvider{
         $this->set_lexicon_data($lexicon_terms);
     }
 
-    public function delete_term(string $term){
+    public function delete_term($term){
         $lexicon_terms = $this->get_lexicon_data();
         for($i=0; $i<count($lexicon_terms); $i++){
             if($lexicon_terms[$i]->term == $term){
