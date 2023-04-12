@@ -22,7 +22,7 @@
         </thead>
         <?php foreach ($model['data'] as $item) : ?>
             <tr>
-                <td><a href="detail.php?term=<?=$item->term?>">
+                <td><a href="detail.php?term=<?=$item->id?>">
                         <?= $item->term ?>
                     </a></td>
                 <td><?= $item->definition ?></td>
